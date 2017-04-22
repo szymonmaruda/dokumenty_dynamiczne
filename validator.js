@@ -196,7 +196,7 @@ function validateAll() {
         var model = document.getElementById('Model').value;
         var rok = document.getElementById('Rok').value;
         var cena = document.getElementById('Cena').value;
-        var paliwo = document.getElementById('Paliwo').value;
+        var paliwo = $("#Paliwo option:selected").html();
         var kolor = document.getElementById('Kolor').value;
         var pojemnosc = document.getElementById('Pojemnosc').value;
         var przebieg = document.getElementById('Przebieg').value;
@@ -227,7 +227,7 @@ function validateAll() {
         }
         else{
           document.getElementById("myTable").setAttribute("style", "display:table");
-          rows += "<tr> <td>" + marka + "</td> <td>" + model + "</td> <td>" + rok + "</td> <td>" + cena + "</td> <td>" + paliwo + "</td> <td>" + kolor + "</td> <td>" + pojemnosc + "</td> <td>" + przebieg + "</td> </tr>";
+          rows += "<tr><td><input type=\"radio\" name=\"option\" id=\"options\"></input> </td> <td>" + marka + "</td> <td>" + model + "</td> <td>" + rok + "</td> <td>" + cena + "</td> <td>" + paliwo + "</td> <td>" + kolor + "</td> <td>" + pojemnosc + "</td> <td>" + przebieg + "</td> </tr>";
           $(rows).appendTo($("#myTable tbody"));
             $("#myTable").trigger("update");
             //$("#myTable").tablesorter();
@@ -235,3 +235,81 @@ function validateAll() {
         }
     }
 }
+
+$(document).ready(function() {
+    $("table").tablesorter();
+    $("#marka_ascending").click(function() {
+        // set sorting column and direction, this will sort on the first and third column the column index starts at zero
+        var sorting = [[0,0]];
+        // sort on the first column
+        $("table").trigger("sorton",[sorting]);
+        // return false to stop default link action
+        return false;
+    });
+});
+
+
+
+$(document).ready(function() {
+    $("table").tablesorter();
+    $("#marka_descending").click(function() {
+        // set sorting column and direction, this will sort on the first and third column the column index starts at zero
+        var sorting = [[0,1]];
+        // sort on the first column
+        $("table").trigger("sorton",[sorting]);
+        // return false to stop default link action
+        return false;
+    });
+});
+
+$(document).ready(function() {
+    $("table").tablesorter();
+    $("#price_ascending").click(function() {
+        // set sorting column and direction, this will sort on the first and third column the column index starts at zero
+        var sorting = [[3,0]];
+        // sort on the first column
+        $("table").trigger("sorton",[sorting]);
+        // return false to stop default link action
+        return false;
+    });
+});
+
+
+
+$(document).ready(function() {
+    $("table").tablesorter();
+    $("#price_descending").click(function() {
+        // set sorting column and direction, this will sort on the first and third column the column index starts at zero
+        var sorting = [[3,1]];
+        // sort on the first column
+        $("table").trigger("sorton",[sorting]);
+        // return false to stop default link action
+        return false;
+    });
+});
+
+$(document).ready(function() {
+    $("table").tablesorter();
+    $("#capacity_ascending").click(function() {
+        // set sorting column and direction, this will sort on the first and third column the column index starts at zero
+        var sorting = [[6,0]];
+        // sort on the first column
+        $("table").trigger("sorton",[sorting]);
+        // return false to stop default link action
+        return false;
+    });
+});
+
+
+
+$(document).ready(function() {
+    $("table").tablesorter();
+    $("#capacity_descending").click(function() {
+        // set sorting column and direction, this will sort on the first and third column the column index starts at zero
+        var sorting = [[6,1]];
+        // sort on the first column
+        $("table").trigger("sorton",[sorting]);
+        // return false to stop default link action
+        return false;
+    });
+});
