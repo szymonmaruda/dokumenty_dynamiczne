@@ -99,24 +99,25 @@
 					<div class="form-group">
 					<button type="button" class="btn btn-default col-md-4 col-md-offset-4" value="click" id="click" onclick="validateAll()">Zapisz</button>
 					</div>
+					</div>
 				</div>
 				</form>
 			</div>
 				<div id="element_istnieje_alert" style="margin-top:30px"></div>
 				<div class="row">
 				<div class="col-md-12" style="margin-top: 30px">
-					<button class="btn btn-default btn-sm" id="price_ascending">Cena rosnaco</button>
-					<button class="btn btn-default btn-sm" id="price_descending">Cena rosnaco</button>
-					<button class="btn btn-default btn-sm" id="capacity_ascending">Pojemnosc rosnaco</button>
-					<button class="btn btn-default btn-sm" id="capacity_descending">Pojemnosc rosnaco</button>
-					<button class="btn btn-default btn-sm" id="marka_ascending">Model rosnaco</button>
-					<button class="btn btn-default btn-sm" id="marka_descending">Model malejaco</button>
+					<button class="btn btn-default btn-lg" id="price_ascending">Cena rosnaco</button>
+					<button class="btn btn-default btn-lg" id="price_descending">Cena malejaco</button>
+					<button class="btn btn-default btn-lg" id="capacity_ascending">Pojemnosc rosnaco</button>
+					<button class="btn btn-default btn-lg" id="capacity_descending">Pojemnosc malejaco</button>
+					<button class="btn btn-default btn-lg" id="marka_ascending">Marka rosnaco</button>
+					<button class="btn btn-default btn-lg" id="marka_descending">Marka malejaco</button>
 				</div>
 			</div>
 					<table cellspacing="1" id="myTable" class="tablesorter">
 						<thead>
 							<tr>
-								<th>Zaznacz</th>
+								<th>Usuń</th>
 								<th>Marka</th>
 								<th>Model</th>
 								<th>Rok produkcji</th>
@@ -125,13 +126,19 @@
 								<th>Kolor</th>
 								<th>Pojemnosc</th>
 								<th>Przebieg</th>
+								<th>Edytuj</th>
 							</tr>
 						</thead>
 						<tbody>
 
 						</tbody>
 					</table>
-
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<button class="btn btn-default btn-lg btn-block" id="edit">Edytuj</button>
+						<button class="btn btn-default btn-lg btn-block" id="delete">Usun</button>
+					</div>
+					<div class="col-md-4"></div>
 			</div>
 			<div class="col-md-2">
 

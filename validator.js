@@ -215,7 +215,7 @@ function validateAll() {
         //loops through rows
         for (i = 1; i < rowLength; i++){
                 var oCells = oTable.rows.item(i).cells;
-                var cellVal = oCells.item(1).innerHTML;
+                var cellVal = oCells.item(2).innerHTML;
                 if(model == cellVal){
                   isElementInList=true;
                 }
@@ -227,11 +227,12 @@ function validateAll() {
         }
         else{
           document.getElementById("myTable").setAttribute("style", "display:table");
-          rows += "<tr><td><input type=\"radio\" name=\"option\" id=\"options\"></input> </td> <td>" + marka + "</td> <td>" + model + "</td> <td>" + rok + "</td> <td>" + cena + "</td> <td>" + paliwo + "</td> <td>" + kolor + "</td> <td>" + pojemnosc + "</td> <td>" + przebieg + "</td> </tr>";
+          rows += "<tr><td><input type=\"checkbox\" name=\"option\" class=\"options\"></input> </td> <td>" + marka + "</td> <td>" + model + "</td> <td>" + rok + "</td> <td>" + cena + "</td> <td>" + paliwo + "</td> <td>" + kolor + "</td> <td>" + pojemnosc + "</td> <td>" + przebieg + "</td> <td> <input type=\"radio\" name=\"edit\" class=\"edit\"></input> </td></tr>";
           $(rows).appendTo($("#myTable tbody"));
             $("#myTable").trigger("update");
             //$("#myTable").tablesorter();
           bladNazwa.setAttribute("style", "display:none");
+          document.getElementById("form1").reset();
         }
     }
 }
@@ -240,7 +241,7 @@ $(document).ready(function() {
     $("table").tablesorter();
     $("#marka_ascending").click(function() {
         // set sorting column and direction, this will sort on the first and third column the column index starts at zero
-        var sorting = [[0,0]];
+        var sorting = [[1,0]];
         // sort on the first column
         $("table").trigger("sorton",[sorting]);
         // return false to stop default link action
@@ -254,7 +255,7 @@ $(document).ready(function() {
     $("table").tablesorter();
     $("#marka_descending").click(function() {
         // set sorting column and direction, this will sort on the first and third column the column index starts at zero
-        var sorting = [[0,1]];
+        var sorting = [[1,1]];
         // sort on the first column
         $("table").trigger("sorton",[sorting]);
         // return false to stop default link action
@@ -266,7 +267,7 @@ $(document).ready(function() {
     $("table").tablesorter();
     $("#price_ascending").click(function() {
         // set sorting column and direction, this will sort on the first and third column the column index starts at zero
-        var sorting = [[3,0]];
+        var sorting = [[4,0]];
         // sort on the first column
         $("table").trigger("sorton",[sorting]);
         // return false to stop default link action
@@ -274,13 +275,11 @@ $(document).ready(function() {
     });
 });
 
-
-
 $(document).ready(function() {
     $("table").tablesorter();
     $("#price_descending").click(function() {
         // set sorting column and direction, this will sort on the first and third column the column index starts at zero
-        var sorting = [[3,1]];
+        var sorting = [[4,1]];
         // sort on the first column
         $("table").trigger("sorton",[sorting]);
         // return false to stop default link action
@@ -292,24 +291,34 @@ $(document).ready(function() {
     $("table").tablesorter();
     $("#capacity_ascending").click(function() {
         // set sorting column and direction, this will sort on the first and third column the column index starts at zero
-        var sorting = [[6,0]];
+        var sorting = [[7,0]];
         // sort on the first column
         $("table").trigger("sorton",[sorting]);
         // return false to stop default link action
         return false;
     });
 });
-
-
 
 $(document).ready(function() {
     $("table").tablesorter();
     $("#capacity_descending").click(function() {
         // set sorting column and direction, this will sort on the first and third column the column index starts at zero
-        var sorting = [[6,1]];
+        var sorting = [[7,1]];
         // sort on the first column
         $("table").trigger("sorton",[sorting]);
         // return false to stop default link action
         return false;
     });
 });
+
+$(document).ready(function(){
+  $("#delete").click(function(){
+        $('table tr').has('input[name="option"]:checked').remove()
+  });
+});
+
+$('#edit').click(function(){
+     $('table tr').filter(':has(:radio:checked)').find('td').each(function() {
+       console.log(this);
+     });
+   });
