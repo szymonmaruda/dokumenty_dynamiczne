@@ -317,8 +317,60 @@ $(document).ready(function(){
   });
 });
 
-$('#edit').click(function(){
-     $('table tr').filter(':has(:radio:checked)').find('td').each(function() {
-       console.log(this);
-     });
-   });
+$(document).ready(function(){
+  $('#edit').click(function(){
+
+    document.getElementById('click').setAttribute("style","display:none");
+    document.getElementById('update_data').setAttribute("style","display:block");
+
+      var marka;
+      marka = $('table').find('[type="radio"]:checked').map(function(){
+      return $(this).closest('tr').find('td:nth-child(2)').text();
+      }).get();
+      $('#Marka').val(marka);
+
+      var model;
+      model = $('table').find('[type="radio"]:checked').map(function(){
+      return $(this).closest('tr').find('td:nth-child(3)').text();
+      }).get();
+      $('#Model').val(model);
+
+      var rok;
+      rok = $('table').find('[type="radio"]:checked').map(function(){
+      return $(this).closest('tr').find('td:nth-child(4)').text();
+      }).get();
+      $('#Rok').val(rok);
+
+      var cena;
+      cena = $('table').find('[type="radio"]:checked').map(function(){
+      return $(this).closest('tr').find('td:nth-child(5)').text();
+      }).get();
+      $('#Cena').val(cena);
+
+    /*  var paliwo;
+      cena = $('table').find('[type="radio"]:checked').map(function(){
+      return $(this).closest('tr').find('td:nth-child(6)').text();
+      }).get();
+      $('#Paliwo').val(paliwo);
+      */
+
+      var kolor;
+      kolor = $('table').find('[type="radio"]:checked').map(function(){
+      return $(this).closest('tr').find('td:nth-child(7)').text();
+      }).get();
+      $('#Kolor').val(kolor);
+
+      var pojemnosc;
+      pojemnosc = $('table').find('[type="radio"]:checked').map(function(){
+      return $(this).closest('tr').find('td:nth-child(8)').text();
+      }).get();
+      $('#Pojemnosc').val(pojemnosc);
+
+      var przebieg;
+      przebieg = $('table').find('[type="radio"]:checked').map(function(){
+      return $(this).closest('tr').find('td:nth-child(9)').text();
+      }).get();
+      $('#Przebieg').val(przebieg);
+
+  });
+});
