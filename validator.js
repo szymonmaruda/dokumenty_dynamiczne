@@ -347,12 +347,30 @@ $(document).ready(function(){
       }).get();
       $('#Cena').val(cena);
 
-    /*  var paliwo;
-      cena = $('table').find('[type="radio"]:checked').map(function(){
+      var paliwo;
+      paliwo = $('table').find('[type="radio"]:checked').map(function(){
       return $(this).closest('tr').find('td:nth-child(6)').text();
       }).get();
-      $('#Paliwo').val(paliwo);
-      */
+
+      switch (paliwo[0]) {
+        case "Benzyna":
+            $('#Paliwo').val(1);
+          break;
+        case "Diesel":
+            $('#Paliwo').val(2);
+          break;
+        case "Hybryda":
+            $('#Paliwo').val(3);
+          break;
+        case "Benzyna+LPG":
+            $('#Paliwo').val(4);
+          break;
+        case "Elektryczny":
+            $('#Paliwo').val(5);
+          break;
+        default:
+             $('#Paliwo').val(0);
+      }
 
       var kolor;
       kolor = $('table').find('[type="radio"]:checked').map(function(){
